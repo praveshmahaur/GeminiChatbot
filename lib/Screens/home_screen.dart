@@ -22,12 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
   final gemini = Gemini.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  
   String _userId = "";
   String? _userName;
   String? _userEmail;
 
-  // Initialize with default values instead of using late
   ChatUser Me = ChatUser(id: "temp_id", firstName: "User");
   ChatUser GeminiUser = ChatUser(id: "gemini", firstName: "Gemini");
 
@@ -35,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List<ChatUser> typing = <ChatUser>[];
   String currentChatId = "";
 
-  // Add a loading state
   bool _isInitializing = true;
 
   @override
@@ -49,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
     if (user != null) {
       _userId = user.uid;
 
-      // Get user details from Firestore
       DocumentSnapshot userDoc =
           await _firestore.collection('users').doc(_userId).get();
       if (userDoc.exists) {
@@ -588,6 +585,12 @@ class _HomeScreenState extends State<HomeScreen> {
               onSend: sendMessage,
               messages: Allmessages,
               typingUsers: typing,
+
+  //             messageOptions: MessageOptions(
+  //   currentUserContainerColor: Colors.white, // your message bubble
+  //   // containerColor: Colors.grey[300], // other messages
+  //   textColor: Colors.black,
+  // ),
               
               inputOptions: InputOptions(alwaysShowSend: true, leading: [
                 IconButton(

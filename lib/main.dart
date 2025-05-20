@@ -19,8 +19,6 @@ Future main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // print("API+KEY ${apiKey}");
-
   Gemini.init(apiKey: apiKey);
   runApp(MyApp());
 }
@@ -33,18 +31,36 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           return MaterialApp(
-            title: 'Gemini App Developed by pravesh mahaur',
-            themeMode: themeProvider.themeMode, // Apply Theme Mode
+            title: 'Gemini App Developed by Pravesh Mahaur',
+            themeMode: themeProvider.themeMode, 
             theme: ThemeData(
               brightness: Brightness.light,
               primarySwatch: Colors.lightBlue
               // colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
+              
             ),
             debugShowCheckedModeBanner: false,
+            // darkTheme: ThemeData(
+            //   brightness: Brightness.dark,
+            //   primarySwatch: Colors.grey
+            // ),
             darkTheme: ThemeData(
-              brightness: Brightness.dark,
-              primarySwatch: Colors.blueGrey,
+            useMaterial3: true,
+            colorScheme: const ColorScheme.dark(
+              primary: Color.fromARGB(255, 133, 74, 144),     
+              onPrimary: Colors.white,
+              secondary: Colors.white,   
+              onSecondary: Colors.white,
+              background: Colors.white,  
+              onBackground: Colors.white,
+              // surface: Colors.white,
+              onSurface: Colors.white,
+              error: Colors.red,
+              onError: Colors.black,
+              brightness: Brightness.light,
             ),
+),
+
             home: AuthWrapper(),
           );
         },

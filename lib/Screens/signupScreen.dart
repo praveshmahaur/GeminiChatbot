@@ -195,7 +195,6 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Success message
                 if (successMessage.isNotEmpty)
                   Container(
                     padding: const EdgeInsets.all(10),
@@ -219,7 +218,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                 
-                // Name field
+                
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Name',
@@ -232,7 +231,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const SizedBox(height: 20),
                 
-                // Email field
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Email',
@@ -250,22 +248,20 @@ class _SignupScreenState extends State<SignupScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
-                
-                // Password field
+ 
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     border: OutlineInputBorder(),
                   ),
                   obscureText: true,
-                  validator: (val) => val!.length < 6 ? 'Password must be 6+ chars long' : null,
+                  validator: (val) => val!.length < 6 ? 'Password must be 6+ character long' : null,
                   onChanged: (val) {
                     setState(() => password = val);
                   },
                 ),
                 const SizedBox(height: 20),
-                
-                // Confirm Password field
+
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Confirm Password',
@@ -278,8 +274,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
-                
-                // Register button
+            
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(50),
@@ -292,20 +287,17 @@ class _SignupScreenState extends State<SignupScreen> {
                         successMessage = '';
                       });
                       try {
-                        // Create user with email & password but DON'T persist the session
                         UserCredential result = await _auth.createUserWithEmailAndPassword(
                           email: email,
                           password: password,
                         );
                         
-                        // Add user details to Firestore
                         await _firestore.collection('users').doc(result.user!.uid).set({
                           'name': name,
                           'email': email,
                           'createdAt': DateTime.now().toIso8601String(),
                         });
                         
-                        // Sign out immediately to prevent auto-navigation
                         await _auth.signOut();
                         
                         // Show success message
@@ -320,7 +312,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           _formKey.currentState!.reset();
                         });
                         
-                        // Optional: Auto navigate to login after delay
                         Future.delayed(const Duration(seconds: 3), () {
                           widget.toggleView();
                         });

@@ -41,7 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Email field
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Email',
@@ -52,16 +51,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   setState(() => email = val);
                 },
               ),
+
               const SizedBox(height: 20),
               
-              // Password field
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),
                 obscureText: true,
-                validator: (val) => val!.length < 6 ? 'Password must be 6+ chars long' : null,
+                validator: (val) => val!.length < 6 ? 'Password must be 6+ character long' : null,
                 onChanged: (val) {
                   setState(() => password = val);
                 },

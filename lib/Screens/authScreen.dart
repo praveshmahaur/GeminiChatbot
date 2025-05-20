@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:geminichatbot/Screens/loginScreen.dart';
 import 'package:geminichatbot/Screens/signupScreen.dart';
 
-
-
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
