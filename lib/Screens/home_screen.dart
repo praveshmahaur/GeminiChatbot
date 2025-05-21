@@ -586,11 +586,11 @@ class _HomeScreenState extends State<HomeScreen> {
               messages: Allmessages,
               typingUsers: typing,
 
-  //             messageOptions: MessageOptions(
-  //   currentUserContainerColor: Colors.white, // your message bubble
-  //   // containerColor: Colors.grey[300], // other messages
-  //   textColor: Colors.black,
-  // ),
+              // messageOptions: MessageOptions(
+              //   currentUserContainerColor: Colors.white, // your message bubble
+              //   // containerColor: Colors.grey[300], // other messages
+              //   textColor: Colors.black,
+              // ),
               
               inputOptions: InputOptions(alwaysShowSend: true, leading: [
                 IconButton(
