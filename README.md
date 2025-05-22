@@ -3,6 +3,10 @@ A **Flutter application** that integrates **Google's Gemini AI** to create an in
 
 ---
 
+## 📷 Screenshots
+![gemini_git-](https://github.com/user-attachments/assets/c13d95f3-7b92-4f28-bdfe-6fe9e7f64cf4)
+
+
 ## ✨ Features  
 
 ### 🤖 AI-Powered Chat  
